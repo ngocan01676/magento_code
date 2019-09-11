@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * WaPoNe
+ *
+ * @category   WaPoNe
+ * @package    WaPoNe_Stickers
+ * @copyright  Copyright (c) 2017 WaPoNe (http://www.fantetti.net)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\CatalogWidget\Block\Product\ProductsList">
+        <plugin name="WaPoNe_WidgetStickersPlugin"
+                type="WaPoNe\Stickers\Plugin\Catalog\Widget\StickersPlugin" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\Widget\NewWidget">
+        <plugin name="WaPoNe_NewWidgetStickersPlugin"
+                type="WaPoNe\Stickers\Plugin\Catalog\NewWidget\StickersPlugin" />
+    </type>
+    <!--type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="WaPoNe_CategoryStickersPlugin" type="WaPoNe\Stickers\Plugin\CategoryStickersPlugin"/>
+    </type-->
+    <virtualType name="Magento\CatalogSearch\Block\SearchResult\ListProduct">
+        <plugin name="WaPoNe_CategoryStickersPluginVirtual"
+                type="WaPoNe\Stickers\Plugin\ProductStickersPlugin" />
+    </virtualType>
+    <type name="Magento\Catalog\Block\Product\AbstractProduct">
+        <plugin name="WaPoNe_ProductStickersPlugin" type="WaPoNe\Stickers\Plugin\ProductStickersPlugin"/>
+    </type>
+</config>
